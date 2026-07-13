@@ -36,8 +36,13 @@ export default function ContactPage() {
         }
       );
 
+      const result = await response.json ();
+
+      console.log("Formspree status:", response.status);
+      console.log("Formspree response:", result);
+
       if (!response.ok) {
-        throw new Error("The message could not be sent.");
+        throw new Error(result?.error || "The message could not be sent.");
       }
 
       form.reset();
