@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { FormEvent, useState } from "react";
 import {
   Building2,
   Globe,
@@ -9,7 +12,42 @@ import {
   Send,
 } from "lucide-react";
 
+type FormStatus = "idle" | "sending" | "success" | "error";
+
 export default function ContactPage() {
+  const [status, setStatus] = useState<FormStatus>("idle");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus("sending");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(
+        "https://formspree.io/f/mvgkqapp",
+        {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("The message could not be sent.");
+      }
+
+      form.reset();
+      setStatus("success");
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setStatus("error");
+    }
+  }
+
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
       {/* Header */}
@@ -90,7 +128,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            {/* Mailing Address */}
+            {/* Second Office */}
             <div className="border-t border-slate-200 pt-8">
               <div className="flex items-center gap-3">
                 <MapPin className="h-6 w-6 text-[#0B2E6D]" />
@@ -172,63 +210,83 @@ export default function ContactPage() {
 
               <p className="mt-3 text-lg text-gray-900">
                 <a
-                  href="https://usaupline-tech.net"
+                  href="https://www.usaupline-tech.net"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition hover:text-blue-700"
                 >
-                  usaupline-tech.net
+                  www.usaupline-tech.net
                 </a>
               </p>
             </div>
           </div>
         </div>
 
-        {/* Contact Form */}
+                {/* Contact Form */}
         <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-xl md:p-10">
           <h2 className="text-3xl font-bold text-[#0B2E6D] md:text-4xl">
             Send Us a Message
           </h2>
 
-          <form className="mt-8 space-y-5">
+          <form onSubmit={handleSubmit} className="mt-8 space-y-5">
             <input
               type="text"
               name="name"
               placeholder="Your Name"
-              className="w-full rounded-xl border border-slate-400 bg-white p-4 text-gray-900 placeholder:text-gray-500 focus:border-blue-700 focus:outline-none"
+              required
+              disabled={status === "sending"}
+              className="w-full rounded-xl border border-slate-400 bg-white p-4 text-gray-900 placeholder:text-gray-500 focus:border-blue-700 focus:outline-none disabled:cursor-not-allowed disabled:opacity-60"
             />
 
             <input
               type="email"
               name="email"
               placeholder="Email"
-              className="w-full rounded-xl border border-slate-400 bg-white p-4 text-gray-900 placeholder:text-gray-500 focus:border-blue-700 focus:outline-none"
+              required
+              disabled={status === "sending"}
+              className="w-full rounded-xl border border-slate-400 bg-white p-4 text-gray-900 placeholder:text-gray-500 focus:border-blue-700 focus:outline-none disabled:cursor-not-allowed disabled:opacity-60"
             />
 
             <input
               type="tel"
               name="phone"
               placeholder="Phone Number"
-              className="w-full rounded-xl border border-slate-400 bg-white p-4 text-gray-900 placeholder:text-gray-500 focus:border-blue-700 focus:outline-none"
+              disabled={status === "sending"}
+              className="w-full rounded-xl border border-slate-400 bg-white p-4 text-gray-900 placeholder:text-gray-500 focus:border-blue-700 focus:outline-none disabled:cursor-not-allowed disabled:opacity-60"
             />
 
             <select
               name="service"
               defaultValue=""
-              className="w-full rounded-xl border border-slate-400 bg-white p-4 text-gray-900 focus:border-blue-700 focus:outline-none"
+              required
+              disabled={status === "sending"}
+              className="w-full rounded-xl border border-slate-400 bg-white p-4 text-gray-900 focus:border-blue-700 focus:outline-none disabled:cursor-not-allowed disabled:opacity-60"
             >
               <option value="" disabled>
                 Select Service
               </option>
 
-              <option value="camera-systems">Camera Systems</option>
-              <option value="alarm-systems">Alarm Systems</option>
-              <option value="computer-repair">Computer Repair</option>
-              <option value="tablet-repair">Tablet Repair</option>
-              <option value="home-network">
+              <option value="Camera Systems">
+                Camera Systems
+              </option>
+
+              <option value="Alarm Systems">
+                Alarm Systems
+              </option>
+
+              <option value="Computer Repair">
+                Computer Repair
+              </option>
+
+              <option value="Tablet Repair">
+                Tablet Repair
+              </option>
+
+              <option value="Home Network Automation">
                 Home Network Automation
               </option>
-              <option value="remote-support">
+
+              <option value="Remote Technical Support">
                 Remote Technical Support
               </option>
             </select>
@@ -237,16 +295,38 @@ export default function ContactPage() {
               name="message"
               rows={6}
               placeholder="Message"
-              className="w-full resize-none rounded-xl border border-slate-400 bg-white p-4 text-gray-900 placeholder:text-gray-500 focus:border-blue-700 focus:outline-none"
+              required
+              disabled={status === "sending"}
+              className="w-full resize-none rounded-xl border border-slate-400 bg-white p-4 text-gray-900 placeholder:text-gray-500 focus:border-blue-700 focus:outline-none disabled:cursor-not-allowed disabled:opacity-60"
             />
 
             <button
               type="submit"
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#0B2E6D] px-8 py-4 font-bold text-white transition hover:bg-blue-800"
+              disabled={status === "sending"}
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#0B2E6D] px-8 py-4 font-bold text-white transition hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-60"
             >
-              Send Message
+              {status === "sending" ? "Sending..." : "Send Message"}
+
               <Send className="h-5 w-5" />
             </button>
+
+            {status === "success" && (
+              <div
+                role="status"
+                className="rounded-xl border border-green-300 bg-green-50 p-4 text-center font-semibold text-green-800"
+              >
+                Thank you! Your message has been sent successfully.
+              </div>
+            )}
+
+            {status === "error" && (
+              <div
+                role="alert"
+                className="rounded-xl border border-red-300 bg-red-50 p-4 text-center font-semibold text-red-700"
+              >
+                Sorry, the message could not be sent. Please try again.
+              </div>
+            )}
           </form>
         </div>
       </section>
