@@ -346,12 +346,12 @@ export default function HomePage() {
           </div>
 
           <div className="text-sm text-slate-300">
-            <p>1500 N Grant Street Ste R</p>
-            <p>Denver, CO 80203</p>
+            <p>1207 Delaware Ave Unit 390</p>
+            <p>Wilmington, DE 19806</p>
 
-            <p className="mt-4">77 Northeastern Blvd.</p>
-            <p>Suite 105 #1003</p>
-            <p>Nashua, NH 03062</p>
+            <p className="mt-4">215 S Wadsworth Blvd.</p>
+            <p>Unit 400 #660</p>
+            <p>Denver, CO 80226</p>
           </div>
         </div>
 
