@@ -127,9 +127,9 @@ export default function ContactPage() {
               </div>
 
               <p className="mt-3 text-lg leading-8 text-gray-900">
-                1500 N Grant Street Ste R
+                1207 Delaware Ave Unit 390
                 <br />
-                Denver, CO 80203
+                Wilmington, DE 19806
               </p>
             </div>
 
@@ -144,11 +144,11 @@ export default function ContactPage() {
               </div>
 
               <p className="mt-3 text-lg leading-8 text-gray-900">
-                77 Northeastern Blvd.
+                215 S Wadsworth Blvd.
                 <br />
-                Suite 105 #1003
+                Unit 400 #660
                 <br />
-                Nashua, NH 03062
+                Denver, CO 80226
               </p>
             </div>
 
