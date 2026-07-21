@@ -152,6 +152,22 @@ export default function ContactPage() {
               </p>
             </div>
 
+            {/* Third Office */}
+            <div className="border-t border-slate-200 pt-8">
+             <div className="flex items-center gap-3">
+               <MapPin className="h-6 w-6 text-[#0B2E6D]" />
+
+               <h3 className="text-2xl font-bold text-[#0B2E6D]">
+                 Third Office
+               </h3>
+            </div>
+
+           <p className="mt-3 text-lg leading-8 text-gray-900">
+             20 Portsmouth Ave Ste 1 #2045
+             <br />
+             Stratham, NH 03885
+           </p>
+        </div>
             {/* Phone */}
             <div className="border-t border-slate-200 pt-8">
               <div className="flex items-center gap-3">

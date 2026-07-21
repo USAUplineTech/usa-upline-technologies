@@ -352,6 +352,10 @@ export default function HomePage() {
             <p className="mt-4">215 S Wadsworth Blvd.</p>
             <p>Unit 400 #660</p>
             <p>Denver, CO 80226</p>
+
+            <p className="mt-4">20 Portsmouth Ave</p>
+            <p> Ste 1 #2045</p>
+            <p> Stratham, NH 03885</p>
           </div>
         </div>
 
