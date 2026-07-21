@@ -52,12 +52,14 @@ export default function ServicesPage() {
               width={70}
               height={70}
               className="h-auto w-[70px]"
+              priority
             />
 
             <div>
               <p className="text-lg font-bold text-[#0B2E6D]">
                 USA UPLINE TECHNOLOGIES INC
               </p>
+
               <p className="text-xs tracking-[0.25em] text-slate-500">
                 CONNECT • PROTECT • SUPPORT
               </p>
@@ -68,12 +70,15 @@ export default function ServicesPage() {
             <Link href="/" className="hover:text-blue-700">
               Home
             </Link>
+
             <Link href="/services" className="text-blue-700">
               Services
             </Link>
+
             <Link href="/about" className="hover:text-blue-700">
               About
             </Link>
+
             <Link href="/contact" className="hover:text-blue-700">
               Contact
             </Link>
@@ -91,7 +96,8 @@ export default function ServicesPage() {
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-blue-100">
             We provide dependable technology, security, networking, repair,
-            and remote-support solutions for homes and businesses and new current section 8 tenants
+            remote-support solutions for home and businesses, also including our new current 
+            section 8 tenants.
           </p>
         </div>
       </section>
@@ -103,11 +109,12 @@ export default function ServicesPage() {
               key={service.title}
               className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
             >
-              <div className="relative h-75 w-fulloverflow-hidden">
+              <div className="relative h-72 w-full overflow-hidden">
                 <Image
                   src={service.image}
                   alt={service.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition duration-500 hover:scale-110"
                 />
               </div>
@@ -134,25 +141,49 @@ export default function ServicesPage() {
       </section>
 
       <section className="bg-[#071D45] px-6 py-16 text-white">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-8 text-center md:flex-row md:text-left">
-          <div>
-            <h2 className="text-3xl font-bold">
-              Need help with your technology?
-            </h2>
+        <div className="mx-auto max-w-6xl">
+          <div className="flex flex-col items-center justify-between gap-8 text-center md:flex-row md:text-left">
+            <div>
+              <h2 className="text-3xl font-bold">
+                Need help with your technology?
+              </h2>
 
-            <p className="mt-3 text-blue-100">
-              Speak with USA Upline Technologies and request a free quote.
-            </p>
-          </div>
+              <p className="mt-3 text-blue-100">
+                Speak with USA Upline Technologies and request a free quote.
+              </p>
+            </div>
 
-          <div className="flex flex-wrap justify-center gap-4">
-            
             <Link
               href="/contact"
               className="rounded-lg border border-white px-6 py-3 font-bold text-white transition hover:bg-white hover:text-[#0B2E6D]"
             >
               Contact Us
             </Link>
+          </div>
+
+          <div className="mx-auto mt-10 max-w-3xl rounded-2xl border border-white/20 bg-white/10 p-7 text-center shadow-lg backdrop-blur-sm">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-white text-3xl">
+              🏠
+            </div>
+
+            <h3 className="mt-5 text-2xl font-bold text-white">
+              Need help finding a Section 8 home?
+            </h3>
+
+            <p className="mx-auto mt-3 max-w-2xl leading-7 text-blue-100">
+              Explore Section 8 housing resources and search for available
+              homes through our housing assistance platform.
+            </p>
+
+            <a
+              href="https://section8techpro.replit.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-bold text-[#0B2E6D] transition hover:-translate-y-0.5 hover:bg-blue-50"
+            >
+              Find a Section 8 Home
+              <span aria-hidden="true">→</span>
+            </a>
           </div>
         </div>
       </section>
@@ -161,6 +192,7 @@ export default function ServicesPage() {
         <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-3">
           <div>
             <h3 className="font-bold">USA UPLINE TECHNOLOGIES INC</h3>
+
             <p className="mt-2 text-sm text-slate-300">
               Connect • Protect • Support
             </p>
@@ -168,13 +200,22 @@ export default function ServicesPage() {
 
           <div className="text-sm text-slate-300">
             <p>
-              <a href="tel:+16032044124">(603) 204-4124</a>
+              <a href="tel:+16032044124" className="hover:text-white">
+                (603) 204-4124
+              </a>
             </p>
+
             <p className="mt-2">
-              <a href="tel:+19709170073">(970) 917-0073</a>
+              <a href="tel:+19709170073" className="hover:text-white">
+                (970) 917-0073
+              </a>
             </p>
+
             <p className="mt-2">
-              <a href="mailto:info@usaupline-tech.com">
+              <a
+                href="mailto:info@usaupline-tech.com"
+                className="hover:text-white"
+              >
                 info@usaupline-tech.com
               </a>
             </p>
@@ -188,9 +229,9 @@ export default function ServicesPage() {
             <p>Unit 400 #660</p>
             <p>Denver, CO 80226</p>
 
-             <p className="mt-4">20 Portsmouth Ave</p>
-            <p> Ste 1 #2045</p>
-            <p> Stratham, NH 03885</p>
+            <p className="mt-4">20 Portsmouth Ave</p>
+            <p>Ste 1 #2045</p>
+            <p>Stratham, NH 03885</p>
           </div>
         </div>
 
