@@ -120,6 +120,7 @@ export default function HomePage() {
             <p className="mt-6 max-w-xl text-lg leading-8 text-blue-100">
               Security cameras, alarm systems, computer repair, tablet repair,
               networking and remote technical support for homes and businesses.
+              We are also now helping low income families with section 8 find the perfect home.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
