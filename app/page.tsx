@@ -145,7 +145,7 @@ export default function HomePage() {
               </div>
 
               <div>
-                <p className="text-2xl font-bold">2</p>
+                <p className="text-2xl font-bold">3</p>
                 <p className="text-blue-200">Office Locations</p>
               </div>
 
