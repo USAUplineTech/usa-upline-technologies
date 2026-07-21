@@ -91,7 +91,7 @@ export default function ServicesPage() {
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-blue-100">
             We provide dependable technology, security, networking, repair,
-            and remote-support solutions for homes and businesses.
+            and remote-support solutions for homes and businesses and new current section 8 tenants
           </p>
         </div>
       </section>
